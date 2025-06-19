@@ -1,0 +1,1 @@
+SELECT dbo.fn_FormatDate_MMDDYYYY(GETDATE()) AS Today_MMDDYYYY;

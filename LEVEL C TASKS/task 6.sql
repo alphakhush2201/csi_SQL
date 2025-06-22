@@ -1,0 +1,27 @@
+CREATE TABLE STATION (
+    ID INT,
+    CITY VARCHAR(50),
+    STATE VARCHAR(2),
+    LAT_N FLOAT,
+    LONG_W FLOAT
+);
+
+INSERT INTO STATION (ID, CITY, STATE, LAT_N, LONG_W) VALUES
+(1, 'CityA', 'AB', 32.7767, -96.7970),
+(2, 'CityB', 'CD', 40.7128, -74.0060),
+(3, 'CityC', 'EF', 34.0522, -118.2437),
+(4, 'CityD', 'GH', 41.8781, -87.6298);
+
+
+SELECT 
+    ROUND(
+        ABS(MIN_LAT - MAX_LAT) + ABS(MIN_LONG - MAX_LONG), 4
+    ) AS ManhattanDistance
+FROM (
+    SELECT 
+        MIN(LAT_N) AS MIN_LAT,
+        MIN(LONG_W) AS MIN_LONG,
+        MAX(LAT_N) AS MAX_LAT,
+        MAX(LONG_W) AS MAX_LONG
+    FROM STATION
+) AS coords;

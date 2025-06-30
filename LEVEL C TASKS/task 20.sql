@@ -16,3 +16,6 @@ FROM SourceTable s
 EXCEPT
 SELECT t.ID, t.Name
 FROM TargetTable t;
+
+
+
